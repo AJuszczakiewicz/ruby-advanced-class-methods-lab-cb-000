@@ -44,7 +44,7 @@ class Song
   def self.new_from_filename(filename)
     name = filename.gsub(/\w* - |\.\w*/, "")
     song = self.create_by_name(name)
-    song.artist_name = filename.slice(0..(filename.index('-'))).chomp
+    song.artist_name = filename.slice(0..(filename.index('-')-2)).chomp
   end
 
   def self.destroy_all
