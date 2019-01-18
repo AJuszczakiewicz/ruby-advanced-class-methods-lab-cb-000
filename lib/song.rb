@@ -43,8 +43,11 @@ class Song
 
   def self.new_from_filename(filename)
     name = filename.gsub(/\w* - |\.\w*/, "")
+    binding.pry
     song = self.create_by_name(name)
+    binding.pry
     song.artist_name = filename.slice(0..(filename.index('-')-2))
+    binding.pry
   end
 
   def self.destroy_all
