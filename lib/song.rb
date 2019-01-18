@@ -42,8 +42,9 @@ class Song
   end
 
   def self.new_from_filename(filename)
-    name = filename.gsub(/\w* - |\.\w*/, "").chomp
-    self.create_by_name(name)
+    name = filename.gsub(/\w* - |\.\w*/, "")
+    song = self.create_by_name(name)
+    song.artist_name = filename(/- \w*/)
   end
 
   def self.destroy_all
